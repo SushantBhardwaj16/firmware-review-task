@@ -6,7 +6,7 @@ The 12 reported findings were checked against the supplied image. The current ve
 
 ## What the report missed
 
-The image contains a concealed maintenance interface that can provide a shell to a peer who knows its embedded command and password. It also starts an unauthenticated clip-download service on port 8600 in an affected version range and passes a cloud-sync credential directly in a startup command. The factory shadow template contains an admin hash identical to the active admin hash; this supports credential reuse in the supplied image, but does not by itself prove that every manufactured device has the same password. A live TLS private-key concern is documented separately and should be assessed against the service configuration before claiming that the example key is in use.
+The image contains a concealed maintenance interface that can provide a shell to a peer who knows its embedded command and password. It also starts an unauthenticated clip-download service on port 8600 in an affected version range and passes a cloud-sync credential directly in a startup command. The quick-start guide documents the default admin credential; the factory shadow template matches the active admin hash. Since F-02 cites only the hash file, record this separately as a missed issue. It proves the default for this image, not every device. The F-08 example key is test-only, not the live service key.
 
 ## Why the engine was wrong
 
@@ -22,4 +22,4 @@ Disable or restrict Telnet; remove the maintenance interface or replace it with 
 
 ## Method and limitations
 
-Verdicts use image-relative evidence and reproducible inspection commands. The ARM review is static. The C proof of concept reproduces the boundary overwrite in an isolated struct; it is not execution against device firmware. The complete repository test suite passed in the recorded GitHub Actions matrix on Python 3.10, 3.11 and 3.12. Re-run the suite on the final commit before submission.
+Verdicts use image-relative evidence and reproducible inspection commands. The ARM review is static. The C proof of concept reproduces the boundary overwrite in an isolated struct; it is not execution against device firmware. On Python 3.13.5, all 53 tests passed against this source. The firmware unpacked 115 entries; component discovery and advisory analysis completed. The version-only matcher flags fernhttpd 2.4.1, but VEX correctly marks DVS-2026-0101 not affected because CGI is disabled. Re-run tests on the final commit.
