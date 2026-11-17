@@ -6,9 +6,6 @@ import re
 from collections.abc import Iterator
 from dataclasses import dataclass
 
-# Retained for the engine build identifier used by the assessment harness.
-ENGINE_BUILD = "dome-7"
-
 KNOWN_LIBRARIES = {"z": "zpack", "crypt-lite": "libcrypt-lite"}
 PACKAGE_DB = "var/lib/pkgs/status"
 LIBRARY_FOLDERS = ("lib", "usr/lib")
