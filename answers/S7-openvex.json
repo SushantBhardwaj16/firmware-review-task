@@ -1,0 +1,90 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "urn:uuid:ab7b4f68-4dcb-4c5c-9d9a-5a7c8e9f2b32",
+  "author": "Sushant Bhardwaj",
+  "timestamp": "2026-11-17T06:21:00Z",
+  "version": 1,
+  "statements": [
+    {
+      "vulnerability": {
+        "name": "DVS-2026-0101"
+      },
+      "products": [
+        {
+          "@id": "pkg:generic/kestrel-dome2@1.4.2"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "component_not_present"
+    },
+    {
+      "vulnerability": {
+        "name": "DVS-2026-0102"
+      },
+      "products": [
+        {
+          "@id": "pkg:generic/kestrel-dome2@1.4.2"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "component_not_present"
+    },
+    {
+      "vulnerability": {
+        "name": "DVS-2026-0103"
+      },
+      "products": [
+        {
+          "@id": "pkg:generic/kestrel-dome2@1.4.2"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_present"
+    },
+    {
+      "vulnerability": {
+        "name": "DVS-2026-0104"
+      },
+      "products": [
+        {
+          "@id": "pkg:generic/kestrel-dome2@1.4.2"
+        }
+      ],
+      "status": "affected"
+    },
+    {
+      "vulnerability": {
+        "name": "DVS-2026-0105"
+      },
+      "products": [
+        {
+          "@id": "pkg:generic/kestrel-dome2@1.4.2"
+        }
+      ],
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_present"
+    },
+    {
+      "vulnerability": {
+        "name": "DVS-2026-0106"
+      },
+      "products": [
+        {
+          "@id": "pkg:generic/kestrel-dome2@1.4.2"
+        }
+      ],
+      "status": "under_investigation"
+    },
+    {
+      "vulnerability": {
+        "name": "DVS-2026-0107"
+      },
+      "products": [
+        {
+          "@id": "pkg:generic/kestrel-dome2@1.4.2"
+        }
+      ],
+      "status": "affected"
+    }
+  ]
+}
