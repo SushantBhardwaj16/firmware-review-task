@@ -1,1 +1,23 @@
-[]
+[
+  {
+    "title": "Hard-coded maintenance backdoor exposes a remote shell",
+    "severity": "critical",
+    "path": "usr/sbin/kc-maintd",
+    "shows": "ARM ELF listens on 0.0.0.0:9090. XOR-obfuscated strings at offsets 0x46c and 0x474 decode with key 0xA7. The success path dup2s the accepted socket to stdin/stdout/stderr and execs /bin/sh. Verify with readelf -S, objdump -d and xxd at the recorded offsets.",
+    "reason": "The daemon starts at boot through etc/init.d/S65maint. A peer who knows the embedded command and password can obtain an interactive shell. Remove the service or replace it with a properly authenticated management channel."
+  },
+  {
+    "title": "Clip-download service is exposed on the network",
+    "severity": "high",
+    "path": "etc/init.d/S60storage",
+    "shows": "The startup script launches clipstored with -d /mnt/sd/clips -p 8600; inspect the script and usr/sbin/clipstored banner.",
+    "reason": "The service is enabled at boot and clipstored 1.2.0 is within DVS-2026-0107's affected range. Restrict access and update to a fixed version."
+  },
+  {
+    "title": "Cloud-sync credential is embedded in startup configuration",
+    "severity": "high",
+    "path": "etc/init.d/S70cloud",
+    "shows": "The cloud-sync invocation includes --user svc and a literal --password argument; inspect the script.",
+    "reason": "A credential stored in a readable firmware file can be extracted by anyone with the image or filesystem access. Rotate it and replace static command-line secrets with protected provisioning."
+  }
+]
