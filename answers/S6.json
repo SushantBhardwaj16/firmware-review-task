@@ -1,7 +1,7 @@
 {
-  "command": "",
-  "password": "",
-  "key": "",
-  "effect": "",
-  "how": ""
+  "command": "UNLATCH",
+  "password": "heron-gate-42",
+  "key": "0xA7",
+  "effect": "The daemon listens on 0.0.0.0:9090. When the decoded command and password are accepted, it duplicates the accepted socket onto file descriptors 0, 1 and 2 and executes /bin/sh, giving the remote peer an interactive shell.",
+  "how": "Static analysis of the 32-bit little-endian ARM ELF: inspect section headers to locate .rodata at file offset 0x448; decode byte sequences at 0x46c and 0x474 by XORing each byte with 0xA7. Trace the comparison routine to confirm the same transform is applied to received input. Inspect the sockaddr bytes at 0x4fc (AF_INET, port 9090, INADDR_ANY), then follow the accepted-socket path through dup2 calls and execve('/bin/sh'). No execution of the daemon is required."
 }
