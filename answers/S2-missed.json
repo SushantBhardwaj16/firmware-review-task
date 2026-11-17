@@ -19,5 +19,12 @@
     "path": "etc/init.d/S70cloud",
     "shows": "The cloud-sync invocation contains --user svc --password tern-harbour-31 --host cloud.kestrel.example; inspect the script with grep or cat.",
     "reason": "A credential stored in a readable firmware file can be extracted by anyone with the image or filesystem access. Rotate it and replace static command-line secrets with protected provisioning."
+  },
+  {
+    "title": "Factory-default admin credential is documented and provisioned in the image",
+    "severity": "critical",
+    "path": "usr/share/doc/quickstart.txt",
+    "shows": "The quick-start guide documents the factory admin login; usr/share/defaults/shadow.factory contains the same admin SHA-512 hash as etc/shadow. Verify with cat on both files and compare the admin hash fields; the documented password reproduces the hash using openssl passwd -6 with the recorded salt.",
+    "reason": "The engine report cites only etc/shadow, which is a hash and does not itself reveal the default password. The separate quick-start document identifies the factory credential, and the factory shadow template carries the matching hash. Under the labelling rule F-02 is false as originally evidenced, while this independently evidenced default-credential exposure belongs in the missed-issues list. Rotate the credential and require unique per-device provisioning."
   }
 ]
