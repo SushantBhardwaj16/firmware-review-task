@@ -1,0 +1,5 @@
+$ cc -Wall -Wextra -O0 poc/s5_adjacent_field_overwrite.c -o /tmp/s5_poc
+$ /tmp/s5_poc
+len=32, auth_required=0
+
+Local isolated reproduction only; not a live-device test.
