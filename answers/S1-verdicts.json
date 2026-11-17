@@ -1,14 +1,170 @@
 [
-  {"id": "F-01", "verdict": "", "evidence": [], "reason": ""},
-  {"id": "F-02", "verdict": "", "evidence": [], "reason": ""},
-  {"id": "F-03", "verdict": "", "evidence": [], "reason": ""},
-  {"id": "F-04", "verdict": "", "evidence": [], "reason": ""},
-  {"id": "F-05", "verdict": "", "evidence": [], "reason": ""},
-  {"id": "F-06", "verdict": "", "evidence": [], "reason": ""},
-  {"id": "F-07", "verdict": "", "evidence": [], "reason": ""},
-  {"id": "F-08", "verdict": "", "evidence": [], "reason": ""},
-  {"id": "F-09", "verdict": "", "evidence": [], "reason": ""},
-  {"id": "F-10", "verdict": "", "evidence": [], "reason": ""},
-  {"id": "F-11", "verdict": "", "evidence": [], "reason": ""},
-  {"id": "F-12", "verdict": "", "evidence": [], "reason": ""}
+  {
+    "id": "F-01",
+    "verdict": "real",
+    "evidence": [
+      {
+        "path": "etc/init.d/rcS",
+        "shows": "Runs executable S??* startup scripts in lexical order; inspect with cat."
+      },
+      {
+        "path": "etc/init.d/S40telnetd",
+        "shows": "Starts telnetd -l /bin/sh -p 23; inspect with cat."
+      }
+    ],
+    "reason": "The boot-enabled Telnet service launches a shell directly as root, providing an unauthenticated remote root shell."
+  },
+  {
+    "id": "F-02",
+    "verdict": "false",
+    "evidence": [
+      {
+        "path": "etc/shadow",
+        "shows": "The admin entry is a SHA-512 hash, not plaintext; grep '^admin:' etc/shadow."
+      },
+      {
+        "path": "usr/share/doc/quickstart.txt",
+        "shows": "Documents the factory credential and reset behaviour; inspect with cat."
+      }
+    ],
+    "reason": "The cited shadow file does not prove a plaintext default password. The quick-start document discloses the factory credential, a separate issue that should not be confused with the report's evidence."
+  },
+  {
+    "id": "F-03",
+    "verdict": "false",
+    "evidence": [
+      {
+        "path": "usr/sbin/fernhttpd",
+        "shows": "Embedded build string includes --disable-cgi; inspect strings."
+      },
+      {
+        "path": "etc/fernhttpd.conf",
+        "shows": "TLS is configured but CGI module/configuration is absent; inspect file."
+      }
+    ],
+    "reason": "The version is in range, but the advisory requires CGI support. This build disables CGI and the required handler is absent."
+  },
+  {
+    "id": "F-04",
+    "verdict": "false",
+    "evidence": [
+      {
+        "path": "var/lib/pkgs/status",
+        "shows": "Package database lists libzebra 1.2.3."
+      },
+      {
+        "path": "usr/lib/libzebra.so.1.2.3",
+        "shows": "ELF banner identifies libzebra/1.2.3."
+      }
+    ],
+    "reason": "The component is libzebra, not zpack. Prefix matching the known stem 'z' caused the false identification."
+  },
+  {
+    "id": "F-05",
+    "verdict": "false",
+    "evidence": [
+      {
+        "path": "var/lib/pkgs/status",
+        "shows": "Installed linkcfgd package version is 3.2.0."
+      },
+      {
+        "path": "usr/sbin/linkcfgd",
+        "shows": "ELF banner identifies linkcfgd version 3.2.0."
+      }
+    ],
+    "reason": "Package metadata and the executable banner identify version 3.2.0. Documentation must not override installed-component evidence."
+  },
+  {
+    "id": "F-06",
+    "verdict": "real",
+    "evidence": [
+      {
+        "path": "var/lib/pkgs/status",
+        "shows": "upnp-relay is installed at 3.0.2."
+      },
+      {
+        "path": "etc/init.d/S55upnp",
+        "shows": "The service is started during boot."
+      }
+    ],
+    "reason": "Version 3.0.2 is within DVS-2026-0104's affected range of 3.0.0 to below 3.0.6, and the service is enabled at boot."
+  },
+  {
+    "id": "F-07",
+    "verdict": "false",
+    "evidence": [
+      {
+        "path": "boot/config",
+        "shows": "CONFIG_NET_FASTPATH_FILTER is explicitly not set."
+      }
+    ],
+    "reason": "The advisory requires CONFIG_NET_FASTPATH_FILTER, but the supplied kernel configuration explicitly disables it."
+  },
+  {
+    "id": "F-08",
+    "verdict": "false",
+    "evidence": [
+      {
+        "path": "usr/share/doc/libcrypt-lite/examples/README",
+        "shows": "The example key is test-only and not for device use."
+      },
+      {
+        "path": "etc/fernhttpd.conf",
+        "shows": "The live service uses /etc/ssl/device.key."
+      }
+    ],
+    "reason": "The cited example key is not configured by the live service. The separate live key requires its own review and is not evidence for this finding as written."
+  },
+  {
+    "id": "F-09",
+    "verdict": "real-with-condition",
+    "evidence": [
+      {
+        "path": "etc/config/updater",
+        "shows": "Updater URL uses HTTP and verify=0, but enabled=0."
+      },
+      {
+        "path": "etc/init.d/S80update",
+        "shows": "Updater exits unless enabled is set to 1."
+      }
+    ],
+    "reason": "If enabled, the updater downloads over HTTP without verification and can be intercepted or modified. It is disabled in the supplied image, so exposure requires a device configuration change."
+  },
+  {
+    "id": "F-10",
+    "verdict": "unverified",
+    "evidence": [
+      {
+        "path": "boot/bootwarden-0.9.bin",
+        "shows": "The binary exists, but 0.9 appears only in its filename."
+      }
+    ],
+    "reason": "A filename is not authoritative version evidence. No embedded version or validated vendor build identifier was established, so the advisory cannot be confirmed or excluded."
+  },
+  {
+    "id": "F-11",
+    "verdict": "real",
+    "evidence": [
+      {
+        "path": "etc/init.d/S90custom",
+        "shows": "The image manifest records mode 0777."
+      },
+      {
+        "path": "etc/init.d/rcS",
+        "shows": "The boot sequence executes S??* scripts."
+      }
+    ],
+    "reason": "Any local user can modify this world-writable startup script. Its commands are subsequently executed as root during boot, enabling local privilege escalation."
+  },
+  {
+    "id": "F-12",
+    "verdict": "false",
+    "evidence": [
+      {
+        "path": "etc/inittab",
+        "shows": "The shell respawn entry is commented out; the active ttyS0 entry invokes getty."
+      }
+    ],
+    "reason": "The alleged unauthenticated serial shell is not enabled. The active console entry starts getty and presents a login prompt."
+  }
 ]
