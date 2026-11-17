@@ -1,0 +1,6 @@
+$ python3 poc/s6_decode_banner.py
+command: UNLATCH
+password: heron-gate-42
+xor_key: 0xA7
+
+Static decoding only; the ELF was not executed.
