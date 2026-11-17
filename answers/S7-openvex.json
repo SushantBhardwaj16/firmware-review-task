@@ -2,51 +2,93 @@
   "@context": "https://openvex.dev/ns/v0.2.0",
   "@id": "urn:uuid:ab7b4f68-4dcb-4c5c-9d9a-5a7c8e9f2b32",
   "author": "Sushant Bhardwaj",
-  "timestamp": "2026-11-17T06:21:00Z",
+  "timestamp": "2026-11-17T07:22:38Z",
   "version": 1,
   "statements": [
     {
-      "vulnerability": {"name": "DVS-2026-0101"},
-      "products": [{"@id": "pkg:generic/kestrel-dome2@1.4.2"}],
+      "vulnerability": {
+        "name": "DVS-2026-0101"
+      },
+      "products": [
+        {
+          "@id": "pkg:generic/kestrel-dome2@1.4.2"
+        }
+      ],
       "status": "not_affected",
       "justification": "vulnerable_code_not_present",
       "impact_statement": "fernhttpd 2.4.1 is installed, but this build disables CGI and does not contain the vulnerable CGI handler."
     },
     {
-      "vulnerability": {"name": "DVS-2026-0102"},
-      "products": [{"@id": "pkg:generic/kestrel-dome2@1.4.2"}],
+      "vulnerability": {
+        "name": "DVS-2026-0102"
+      },
+      "products": [
+        {
+          "@id": "pkg:generic/kestrel-dome2@1.4.2"
+        }
+      ],
       "status": "not_affected",
       "justification": "component_not_present",
       "impact_statement": "The image contains libzebra, not the zpack component named by this advisory."
     },
     {
-      "vulnerability": {"name": "DVS-2026-0103"},
-      "products": [{"@id": "pkg:generic/kestrel-dome2@1.4.2"}],
+      "vulnerability": {
+        "name": "DVS-2026-0103"
+      },
+      "products": [
+        {
+          "@id": "pkg:generic/kestrel-dome2@1.4.2"
+        }
+      ],
       "status": "not_affected",
       "justification": "vulnerable_code_not_present",
       "impact_statement": "linkcfgd 3.2.0 is installed; the advisory affects versions below 2.0.0, so the vulnerable pre-fix implementation is not present."
     },
     {
-      "vulnerability": {"name": "DVS-2026-0104"},
-      "products": [{"@id": "pkg:generic/kestrel-dome2@1.4.2"}],
+      "vulnerability": {
+        "name": "DVS-2026-0104"
+      },
+      "products": [
+        {
+          "@id": "pkg:generic/kestrel-dome2@1.4.2"
+        }
+      ],
       "status": "affected",
       "action_statement": "Update upnp-relay to 3.0.6 or later and restrict management traffic to trusted network segments."
     },
     {
-      "vulnerability": {"name": "DVS-2026-0105"},
-      "products": [{"@id": "pkg:generic/kestrel-dome2@1.4.2"}],
+      "vulnerability": {
+        "name": "DVS-2026-0105"
+      },
+      "products": [
+        {
+          "@id": "pkg:generic/kestrel-dome2@1.4.2"
+        }
+      ],
       "status": "not_affected",
       "justification": "vulnerable_code_not_present",
       "impact_statement": "CONFIG_NET_FASTPATH_FILTER is explicitly unset in the supplied kernel configuration."
     },
     {
-      "vulnerability": {"name": "DVS-2026-0106"},
-      "products": [{"@id": "pkg:generic/kestrel-dome2@1.4.2"}],
+      "vulnerability": {
+        "name": "DVS-2026-0106"
+      },
+      "products": [
+        {
+          "@id": "pkg:generic/kestrel-dome2@1.4.2"
+        }
+      ],
       "status": "under_investigation"
     },
     {
-      "vulnerability": {"name": "DVS-2026-0107"},
-      "products": [{"@id": "pkg:generic/kestrel-dome2@1.4.2"}],
+      "vulnerability": {
+        "name": "DVS-2026-0107"
+      },
+      "products": [
+        {
+          "@id": "pkg:generic/kestrel-dome2@1.4.2"
+        }
+      ],
       "status": "affected",
       "action_statement": "Update clipstored to 1.3.0 or later and restrict access to recorded clips."
     }
