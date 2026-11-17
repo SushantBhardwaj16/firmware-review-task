@@ -1,0 +1,134 @@
+[
+  {
+    "id": "F-01",
+    "severity": "critical",
+    "title": "Telnet service starts at boot",
+    "component": null,
+    "version": null,
+    "advisory": null,
+    "evidence": [
+      "etc/init.d/S40telnetd"
+    ]
+  },
+  {
+    "id": "F-02",
+    "severity": "critical",
+    "title": "Default password for the admin account",
+    "component": null,
+    "version": null,
+    "advisory": null,
+    "evidence": [
+      "etc/shadow"
+    ]
+  },
+  {
+    "id": "F-03",
+    "severity": "high",
+    "title": "fernhttpd 2.4.1: CGI handler overflow (DVS-2026-0101)",
+    "component": "fernhttpd",
+    "version": "2.4.1",
+    "advisory": "DVS-2026-0101",
+    "evidence": [
+      "usr/sbin/fernhttpd"
+    ]
+  },
+  {
+    "id": "F-04",
+    "severity": "high",
+    "title": "zpack 1.2.3: inflate overflow (DVS-2026-0102)",
+    "component": "zpack",
+    "version": "1.2.3",
+    "advisory": "DVS-2026-0102",
+    "evidence": [
+      "usr/lib/libzebra.so.1.2.3"
+    ]
+  },
+  {
+    "id": "F-05",
+    "severity": "high",
+    "title": "linkcfgd 1.8: config import flaw (DVS-2026-0103)",
+    "component": "linkcfgd",
+    "version": "1.8",
+    "advisory": "DVS-2026-0103",
+    "evidence": [
+      "usr/share/doc/linkcfgd/CHANGES"
+    ]
+  },
+  {
+    "id": "F-06",
+    "severity": "high",
+    "title": "upnp-relay 3.0.2: port mapping without authentication (DVS-2026-0104)",
+    "component": "upnp-relay",
+    "version": "3.0.2",
+    "advisory": "DVS-2026-0104",
+    "evidence": [
+      "usr/sbin/upnp-relay"
+    ]
+  },
+  {
+    "id": "F-07",
+    "severity": "high",
+    "title": "Kernel 5.10.88: packet filter flaw (DVS-2026-0105)",
+    "component": "kernel",
+    "version": "5.10.88",
+    "advisory": "DVS-2026-0105",
+    "evidence": [
+      "boot/config"
+    ]
+  },
+  {
+    "id": "F-08",
+    "severity": "medium",
+    "title": "Private key shipped in the image",
+    "component": null,
+    "version": null,
+    "advisory": null,
+    "evidence": [
+      "usr/share/doc/libcrypt-lite/examples/test-key.pem"
+    ]
+  },
+  {
+    "id": "F-09",
+    "severity": "medium",
+    "title": "Firmware update fetched over HTTP without verification",
+    "component": null,
+    "version": null,
+    "advisory": null,
+    "evidence": [
+      "etc/config/updater"
+    ]
+  },
+  {
+    "id": "F-10",
+    "severity": "medium",
+    "title": "bootwarden 0.9: boot check bypass (DVS-2026-0106)",
+    "component": "bootwarden",
+    "version": "0.9",
+    "advisory": "DVS-2026-0106",
+    "evidence": [
+      "boot/bootwarden-0.9.bin"
+    ]
+  },
+  {
+    "id": "F-11",
+    "severity": "medium",
+    "title": "Start-up script writable by any user",
+    "component": null,
+    "version": null,
+    "advisory": null,
+    "evidence": [
+      "etc/init.d/S90custom"
+    ]
+  },
+  {
+    "id": "F-12",
+    "severity": "low",
+    "title": "Debug shell on the serial console",
+    "component": null,
+    "version": null,
+    "advisory": null,
+    "evidence": [
+      "etc/inittab"
+    ]
+  }
+]

@@ -1,0 +1,164 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "firmware",
+      "name": "kestrel-dome2",
+      "version": "1.4.2"
+    }
+  },
+  "components": [
+    {
+      "type": "application",
+      "name": "bootwarden",
+      "version": "0.9",
+      "properties": [
+        {
+          "name": "minifw:source",
+          "value": "file-name"
+        },
+        {
+          "name": "minifw:path",
+          "value": "boot/bootwarden-0.9.bin"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "fernhttpd",
+      "version": "2.4.1",
+      "properties": [
+        {
+          "name": "minifw:source",
+          "value": "package-db"
+        },
+        {
+          "name": "minifw:path",
+          "value": "var/lib/pkgs/status"
+        }
+      ]
+    },
+    {
+      "type": "operating-system",
+      "name": "kernel",
+      "version": "5.10.88",
+      "properties": [
+        {
+          "name": "minifw:source",
+          "value": "kernel-config"
+        },
+        {
+          "name": "minifw:path",
+          "value": "boot/config"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "libcrypt-lite",
+      "version": "1.0.9",
+      "properties": [
+        {
+          "name": "minifw:source",
+          "value": "package-db"
+        },
+        {
+          "name": "minifw:path",
+          "value": "var/lib/pkgs/status"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "libzebra",
+      "version": "1.2.3",
+      "properties": [
+        {
+          "name": "minifw:source",
+          "value": "package-db"
+        },
+        {
+          "name": "minifw:path",
+          "value": "var/lib/pkgs/status"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "linkcfgd",
+      "version": "1.8",
+      "properties": [
+        {
+          "name": "minifw:source",
+          "value": "document"
+        },
+        {
+          "name": "minifw:path",
+          "value": "usr/share/doc/linkcfgd/CHANGES"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "otafetchd",
+      "version": "0.5.2",
+      "properties": [
+        {
+          "name": "minifw:source",
+          "value": "package-db"
+        },
+        {
+          "name": "minifw:path",
+          "value": "var/lib/pkgs/status"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "telnetd-lite",
+      "version": "1.1.0",
+      "properties": [
+        {
+          "name": "minifw:source",
+          "value": "package-db"
+        },
+        {
+          "name": "minifw:path",
+          "value": "var/lib/pkgs/status"
+        }
+      ]
+    },
+    {
+      "type": "application",
+      "name": "upnp-relay",
+      "version": "3.0.2",
+      "properties": [
+        {
+          "name": "minifw:source",
+          "value": "package-db"
+        },
+        {
+          "name": "minifw:path",
+          "value": "var/lib/pkgs/status"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "zpack",
+      "version": "1.2.3",
+      "properties": [
+        {
+          "name": "minifw:source",
+          "value": "library-name"
+        },
+        {
+          "name": "minifw:path",
+          "value": "usr/lib/libzebra.so.1.2.3"
+        }
+      ]
+    }
+  ]
+}

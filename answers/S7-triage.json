@@ -1,0 +1,15 @@
+{
+  "vex": [
+    {"advisory": "DVS-2026-0101", "status": "", "justification": "", "reason": ""},
+    {"advisory": "DVS-2026-0102", "status": "", "justification": "", "reason": ""},
+    {"advisory": "DVS-2026-0103", "status": "", "justification": "", "reason": ""},
+    {"advisory": "DVS-2026-0104", "status": "", "justification": "", "reason": ""},
+    {"advisory": "DVS-2026-0105", "status": "", "justification": "", "reason": ""},
+    {"advisory": "DVS-2026-0106", "status": "", "justification": "", "reason": ""},
+    {"advisory": "DVS-2026-0107", "status": "", "justification": "", "reason": ""}
+  ],
+  "scores": [
+    {"finding": "F-01", "cwe": "", "cvss": "", "reason": ""},
+    {"finding": "F-11", "cwe": "", "cvss": "", "reason": ""}
+  ]
+}
