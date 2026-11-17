@@ -1,15 +1,60 @@
 {
   "vex": [
-    {"advisory": "DVS-2026-0101", "status": "", "justification": "", "reason": ""},
-    {"advisory": "DVS-2026-0102", "status": "", "justification": "", "reason": ""},
-    {"advisory": "DVS-2026-0103", "status": "", "justification": "", "reason": ""},
-    {"advisory": "DVS-2026-0104", "status": "", "justification": "", "reason": ""},
-    {"advisory": "DVS-2026-0105", "status": "", "justification": "", "reason": ""},
-    {"advisory": "DVS-2026-0106", "status": "", "justification": "", "reason": ""},
-    {"advisory": "DVS-2026-0107", "status": "", "justification": "", "reason": ""}
+    {
+      "advisory": "DVS-2026-0101",
+      "status": "not_affected",
+      "justification": "component_not_present",
+      "reason": "The vulnerable component is not installed in the image."
+    },
+    {
+      "advisory": "DVS-2026-0102",
+      "status": "not_affected",
+      "justification": "component_not_present",
+      "reason": "The image contains libzebra, not zpack."
+    },
+    {
+      "advisory": "DVS-2026-0103",
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_present",
+      "reason": "fernhttpd is built with CGI disabled and the vulnerable CGI handler is absent."
+    },
+    {
+      "advisory": "DVS-2026-0104",
+      "status": "affected",
+      "justification": "",
+      "reason": "upnp-relay 3.0.2 is installed and started at boot; it is within the affected range."
+    },
+    {
+      "advisory": "DVS-2026-0105",
+      "status": "not_affected",
+      "justification": "vulnerable_code_not_present",
+      "reason": "The required kernel configuration option is explicitly unset."
+    },
+    {
+      "advisory": "DVS-2026-0106",
+      "status": "under_investigation",
+      "justification": "",
+      "reason": "bootwarden version is not established by authoritative binary evidence."
+    },
+    {
+      "advisory": "DVS-2026-0107",
+      "status": "affected",
+      "justification": "",
+      "reason": "clipstored 1.2.0 is installed and started at boot within the affected range."
+    }
   ],
   "scores": [
-    {"finding": "F-01", "cwe": "", "cvss": "", "reason": ""},
-    {"finding": "F-11", "cwe": "", "cvss": "", "reason": ""}
+    {
+      "finding": "F-01",
+      "cwe": "CWE-306",
+      "cvss": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H",
+      "reason": "The Telnet service exposes a shell without authentication over the network."
+    },
+    {
+      "finding": "F-11",
+      "cwe": "CWE-732",
+      "cvss": "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+      "reason": "A local unprivileged user can modify a world-writable startup script later executed as root."
+    }
   ]
 }
