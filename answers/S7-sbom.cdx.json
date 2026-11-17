@@ -1,0 +1,66 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:ab7b4f68-4dcb-4c5c-9d9a-5a7c8e9f2b31",
+  "version": 1,
+  "metadata": {
+    "timestamp": "2026-11-17T06:21:00Z",
+    "tools": [
+      {
+        "vendor": "Candidate analysis",
+        "name": "manual firmware review"
+      }
+    ]
+  },
+  "components": [
+    {
+      "type": "operating-system",
+      "name": "linux",
+      "version": "5.10.88"
+    },
+    {
+      "type": "application",
+      "name": "clipstored",
+      "version": "1.2.0"
+    },
+    {
+      "type": "application",
+      "name": "fernhttpd",
+      "version": "2.4.1"
+    },
+    {
+      "type": "library",
+      "name": "libcrypt-lite",
+      "version": "1.0.9"
+    },
+    {
+      "type": "library",
+      "name": "libzebra",
+      "version": "1.2.3"
+    },
+    {
+      "type": "application",
+      "name": "linkcfgd",
+      "version": "3.2.0"
+    },
+    {
+      "type": "application",
+      "name": "otafetchd",
+      "version": "0.5.2"
+    },
+    {
+      "type": "application",
+      "name": "telnetd-lite",
+      "version": "1.1.0"
+    },
+    {
+      "type": "application",
+      "name": "upnp-relay",
+      "version": "3.0.2"
+    },
+    {
+      "type": "application",
+      "name": "bootwarden"
+    }
+  ]
+}
