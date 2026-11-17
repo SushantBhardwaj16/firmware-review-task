@@ -27,7 +27,7 @@
         "shows": "Documents the factory credential and reset behaviour; inspect with cat."
       }
     ],
-    "reason": "The cited shadow file does not prove a plaintext default password. The quick-start document discloses the factory credential, a separate issue that should not be confused with the report's evidence."
+    "reason": "The report cites etc/shadow, which establishes that an admin password hash is stored but does not establish that it is a default password shared by every device. A separate usr/share/defaults/shadow.factory file has an identical admin hash, but the report did not cite that file; under the labelling rule, evidence found only elsewhere is a separate missed issue. One image also cannot establish provisioning across all manufactured devices."
   },
   {
     "id": "F-03",
