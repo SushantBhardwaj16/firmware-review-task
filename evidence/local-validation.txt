@@ -1,0 +1,24 @@
+Local validation performed on the uploaded repository archive
+Environment: Python 3.13.5
+
+Commands and results:
+- python3 -m unittest discover -s minifw/tests -t .
+  PASS: 53 tests.
+- python3 -m minifw unpack images/kestrel-dome2-1.4.2.bin work
+  PASS: unpacked 115 entries.
+- python3 -m minifw components work
+  PASS: detected 8 components.
+- python3 -m minifw analyse work advisories/advisories.json
+  PASS: command completed. Note: this is a version-range matcher and reports fernhttpd 2.4.1 for DVS-2026-0101; manual VEX triage marks it not_affected because the binary is built with --disable-cgi, while the advisory requires CGI support.
+- cc -Wall -Wextra -O0 poc/s5_adjacent_field_overwrite.c -o /tmp/magdox_s5_poc && /tmp/magdox_s5_poc
+  PASS: len=32, auth_required=0.
+- python3 poc/s6_decode_banner.py
+  PASS: decoded command UNLATCH and password; static decoding only, daemon not executed.
+- All JSON files under answers/ parsed successfully.
+- answers/REVIEW.md: 381 words (400-word maximum).
+
+Evidence correction:
+- F-02 is false as originally evidenced under LABELLING.md because the report cites only etc/shadow; the quick-start credential and matching factory shadow hash are separately recorded as a missed issue.
+- F-08's cited example key is documented as test-only and is not the key configured by the live web-server configuration.
+
+The unpacked work/ directory is generated output and is not included in this source ZIP.
