@@ -4,24 +4,24 @@ Reviewed against the Kestrel checklist.
 
 ## Work completed
 
-- **S1 – Finding validation:** Reviewed all 12 reported findings against the firmware filesystem, package database, executable banners, startup scripts, configuration and file permissions. Each verdict includes image-relative evidence and a verification command.
-- **S2 – Additional issues:** Recorded three distinct issues not already represented in the original report: the hidden maintenance command, the exposed clip-download service and a credential passed to the cloud-sync process. Related factory-account and TLS-key concerns are discussed with their S1 findings to avoid double-counting.
-- **S3 – Component discovery:** Added ELF banner parsing for the six requested directory families. The implementation records the byte offset of each component name and applies the specified source precedence.
-- **S4 – Component corrections:** Replaced prefix-based library matching with exact matching and removed the documentation-based version override. Added regression tests for both failure modes.
-- **S5 – C review:** Traced the length-32 boundary case to a terminating NUL written one byte beyond the name buffer, into the adjacent `auth_required` field. The proposed correction rejects lengths greater than or equal to the buffer capacity.
-- **S6 – ARM review:** Analysed the maintenance daemon's encoded strings and control flow. The answer records the decoded command, password, XOR byte, listener and shell-execution behaviour.
-- **S7 – Standards:** Prepared a CycloneDX SBOM, OpenVEX statements, advisory triage, and CWE/CVSS classifications for the requested findings.
+- **S1 – Finding validation:** The answer file contains a verdict, image-relative evidence and a reason for each of the 12 findings. F-02 is labelled false as stated because the report cites only `etc/shadow`, which establishes a stored hash but not a shared factory password. The separate factory shadow template has an identical admin hash in this image; that observation is recorded as a limitation and must not be overstated as proof about every manufactured device.
+- **S2 – Additional issues:** Three additional issues are documented: the hidden maintenance interface, the clip-download service and a cloud-sync credential in a startup command. Each must be reproducible from the cited image files before submission.
+- **S3 – Component discovery:** The scanner checks ELF banners in the six requested directory families, recognises both specified banner forms, records byte offsets and applies the required source precedence.
+- **S4 – Component corrections:** Library matching uses exact stems, preventing `libzebra` from being identified as `zpack`. Documentation no longer overrides installed package evidence. Regression tests cover both errors.
+- **S5 – C review:** The length-32 boundary case is documented: the check accepts a length equal to the 32-byte array capacity, and the terminating NUL is written one byte beyond the array into the adjacent field in the supplied structure. The proposed correction rejects `len >= NAME_MAX_LEN`.
+- **S6 – ARM review:** The answer records the decoded maintenance command and password, XOR key, listener and shell-execution path. This is static analysis; the daemon is not executed.
+- **S7 – Standards:** CycloneDX SBOM, OpenVEX triage and CWE/CVSS classifications are included. Validate the final documents and cross-check them against S1 and S2 before submission.
 
 ## Remaining uncertainty and limitations
 
-The version of `bootwarden` is **unverified**. Its filename contains `0.9`, but a filename alone is not reliable evidence of the installed version. The related advisory is therefore left `under_investigation` rather than assigned a speculative result.
+The version of `bootwarden` is **unverified**. Its filename contains `0.9`, but a filename alone is not reliable version evidence. The related advisory remains `under_investigation`.
 
-The complete repository test suite was run by GitHub Actions at commit `0d061cefa92f9192e11e8926b724258bb3e320f8`. All three Python matrix jobs (3.10, 3.11 and 3.12) completed successfully. The two component test modules also passed locally (15 tests). The S5 C proof of concept is an isolated reproduction of the adjacent-field overwrite; it is not a test against a running device. The S6 analysis is static and does not execute the daemon.
+The complete repository test suite previously passed in GitHub Actions on Python 3.10, 3.11 and 3.12 at commit `b9e56c3d6a15e43ddf549d539490854b72248918`. That result predates the latest edits; the final commit must pass CI before submission. The S5 proof of concept is an isolated reproduction, not a test against running device firmware. The S6 analysis is static and does not execute the daemon.
 
-## Verification approach
+## Evidence and reproducibility
 
-I prioritised evidence that can be independently checked over assumptions based on filenames or documentation. Evidence paths are relative to the unpacked image. Commands in the answer files are intended to be run from the unpacked firmware root unless stated otherwise.
+Evidence paths are relative to the unpacked image. Commands should be run from the repository root unless a ticket says otherwise. Every final verdict must be checked against the original report's cited evidence and the labelling rules. Do not infer a version from a filename or infer fleet-wide provisioning from a single firmware image.
 
 ## AI assistance
 
-AI assistance was used to help draft code, organise evidence and support static analysis. I reviewed the resulting artefacts and recorded the checks performed. I understand that I must be able to explain a verdict and the code changes during the review call.
+AI assistance was used to review and edit parts of the code and written answers. The candidate must personally rerun the commands and tests, inspect the evidence, understand every submitted line and be able to explain the reasoning during the review call.
