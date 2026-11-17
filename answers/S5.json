@@ -1,6 +1,6 @@
 {
-  "line": 0,
-  "trigger_length": 0,
-  "effect": "",
-  "fix": ""
+  "line": 36,
+  "trigger_length": 32,
+  "effect": "NAME_MAX_LEN is 32, so name has valid indexes 0 through 31. The check len > NAME_MAX_LEN accepts len=32. memcpy writes 32 bytes to name[0..31], then dev->name[len] = '\\0' writes at name[32], which is the first byte of the adjacent auth_required field in the supplied struct layout. This changes the flag to zero and can bypass the authentication check.",
+  "fix": "Reject len >= NAME_MAX_LEN before copying, leaving room for the terminating NUL: if (len >= NAME_MAX_LEN) return error;"
 }
